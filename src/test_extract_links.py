@@ -16,6 +16,9 @@ class TestExtractLinks(unittest.TestCase):
         print(extract_markdown_links(text))
         self.assertEqual(extract_markdown_links(text), [("to boot dev", "https://www.boot.dev"), ("to youtube", "https://www.youtube.com/@bootdotdev")])
 
+    def test_extract_markdown_images_no_image(self):
+        text = "This is text"
+        self.assertEqual(extract_markdown_images(text), [])
 
 if __name__ == "__main__":
     unittest.main()
