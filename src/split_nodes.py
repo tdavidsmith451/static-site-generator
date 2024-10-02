@@ -36,7 +36,7 @@ def split_nodes_link(old_nodes):
         if n.text_type != "text":
             new_nodes.append(n)
             continue
-        anchor_url_list = extract_markdown_images(n.text)
+        anchor_url_list = extract_markdown_links(n.text)
         if anchor_url_list == []:
             new_nodes.append(n)
             continue
@@ -47,7 +47,6 @@ def split_nodes_link(old_nodes):
             split_text = text.split(f'[{anchor}]({url})', 1)
             if len(split_text) != 2:
                 raise ValueError("Invalid markdown, image section not closed")
-
             if split_text[0] == "":
                 new_nodes.append(TextNode(anchor, 'link', url))
                 del split_text[0]
