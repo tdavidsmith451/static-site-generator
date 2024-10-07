@@ -1,13 +1,16 @@
-from textnode import *
+from copy_static_to_public import *
+from generate_page import *
 
 
 
 def main():
-    dummy_node = TextNode("This is a text node", "bold", "https://www.boot.dev")
-    print(dummy_node.__repr__())
 
 
 
+    
+    copy_static_to_public()
+    
+    generate_pages_recursive("content", "template.html", "public")
 
 
 

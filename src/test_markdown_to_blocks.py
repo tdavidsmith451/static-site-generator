@@ -11,6 +11,11 @@ class TestMarkdownToBlocks(unittest.TestCase):
         markdown = ""
         self.assertEqual(markdown_to_blocks(markdown), [])
 
+    def test_extract_title(self):
+        markdown = "# Heading "
+        self.assertEqual(extract_title(markdown), "Heading")
+
+
 
 if __name__ == "__main__":
     unittest.main()
